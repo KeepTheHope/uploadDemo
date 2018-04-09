@@ -12,10 +12,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 @Controller
+
+
+
 public class UpFileController {
 	@RequestMapping(value = "/upload.do", method = RequestMethod.POST)
     public void upload(HttpServletRequest request, @RequestParam("file") MultipartFile file, ModelMap model) {
-        System.out.println("¿ªÊ¼");
+        System.out.println("ï¿½ï¿½Ê¼");
         String path = request.getSession().getServletContext().getRealPath("upload");
         String fileName = file.getOriginalFilename();
         // String fileName = new Date().getTime()+".jpg";
@@ -24,7 +27,7 @@ public class UpFileController {
         if (!targetFile.exists()) {
             targetFile.mkdirs();
         }
-        // ±£´æ
+        // ï¿½ï¿½ï¿½ï¿½
         try {
             file.transferTo(targetFile);
         } catch (Exception e) {
